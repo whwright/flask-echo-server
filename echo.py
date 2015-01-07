@@ -1,11 +1,14 @@
 from flask import Flask, jsonify, request
+from werkzeug.routing import Rule
 import time
 import pprint
 
 app = Flask(__name__)
 
-@app.route('/', defaults={'path' : ''}, methods=('GET', 'POST', 'PUT', 'DELETE'))
-@app.route('/<path:path>', methods=('GET', 'POST', 'PUT', 'DELETE'))
+app.url_map.add(Rule('/', defaults={'path' : ''}, endpoint='index'))
+app.url_map.add(Rule('/<path:path>', endpoint='index'))
+
+@app.endpoint('index')
 def echo(path):
 
     data = {
