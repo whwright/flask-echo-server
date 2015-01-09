@@ -8,8 +8,16 @@ app = Flask(__name__)
 app.url_map.add(Rule('/', defaults={'path' : ''}, endpoint='index'))
 app.url_map.add(Rule('/<path:path>', endpoint='index'))
 
+def validate_status_code(status_code):
+    if status_code < 600:
+        return True
+    return False
+
 @app.endpoint('index')
 def echo(path):
+
+    status_code = request.args.get('status') or 200
+    status_code = int(status_code)
 
     data = {
         'success' : True,
@@ -19,12 +27,20 @@ def echo(path):
         'headers' : {key: value for (key, value) in request.headers},
         'body' : request.data.decode(encoding='UTF-8'),
         'host' : request.host,
-        'queryParams' : request.args
+        'queryParams' : request.args,
+        'status' : status_code
     }
 
-    pprint.pprint(data)
+    # pprint.pprint(data)
 
-    return jsonify(data)
+    response = jsonify(data)
+    if validate_status_code(status_code):
+        response.status_code = status_code
+
+    return response
+
+def main():
+    app.run(debug=True)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    main()

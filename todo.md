@@ -1,10 +1,6 @@
-- finish basic echo
-- go through request props and see whats relevant
+- go through request props and see what else is relevant
 
 - cli argument parsing
-- setup and install
 
 - verbose
 - auth
-
-- different status codes?
