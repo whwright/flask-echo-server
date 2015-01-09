@@ -28,7 +28,6 @@ def echo(path):
         'body' : request.data.decode(encoding='UTF-8'),
         'host' : request.host,
         'queryParams' : request.args,
-        'status' : status_code
     }
 
     # pprint.pprint(data)
@@ -37,6 +36,7 @@ def echo(path):
     if validate_status_code(status_code):
         response.status_code = status_code
 
+    data['status'] = response.status_code
     return response
 
 def main():
