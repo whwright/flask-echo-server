@@ -12,12 +12,14 @@ app.url_map.add(Rule('/<path:path>', endpoint='index'))
 def echo(path):
 
     data = {
+        'success' : True,
         'time' : time.time(),
         'path' : request.path,
         'method' : request.method,
         'headers' : {key: value for (key, value) in request.headers},
-        'data' : request.data.decode(encoding='UTF-8'),
-        'host' : request.host
+        'body' : request.data.decode(encoding='UTF-8'),
+        'host' : request.host,
+        'queryParams' : request.args
     }
 
     pprint.pprint(data)
