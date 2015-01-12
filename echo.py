@@ -13,6 +13,9 @@ def validate_status_code(status_code):
         return True
     return False
 
+def extract(d):
+    return {key: value for (key, value) in d.items()}
+
 @app.endpoint('index')
 def echo(path):
 
@@ -23,11 +26,17 @@ def echo(path):
         'success' : True,
         'time' : time.time(),
         'path' : request.path,
+        'script_root' : request.script_root,
+        'url' : request.url,
+        'base_url' : request.base_url,
+        'url_root' : request.url_root,
         'method' : request.method,
-        'headers' : {key: value for (key, value) in request.headers},
-        'body' : request.data.decode(encoding='UTF-8'),
+        'headers' : extract(request.headers),
+        'data' : request.data.decode(encoding='UTF-8'),
         'host' : request.host,
-        'queryParams' : request.args,
+        'args' : extract(request.args),
+        'form' : extract(request.form),
+        'cookies' : extract(request.cookies),
     }
 
     # pprint.pprint(data)
