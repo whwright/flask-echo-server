@@ -2,12 +2,12 @@
 
 A simple echo server built with flask.
 
-##### Install
+#### Install
 ```
 ↪ python3 setup.py install
 ```
 
-##### Usage
+#### Usage
 ```
 ↪ flask-echo -h
 Usage: flask-echo [options]
@@ -20,7 +20,7 @@ Options:
 
 ```
 
-##### Example
+#### Example
 ```
 ↪ flask-echo &
 * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
@@ -58,10 +58,10 @@ Server: Werkzeug/0.10.1 Python/3.4.0
 }
 ```
 
-##### Request Arguments
+#### Request Arguments
 Some additional arguments can be passed to change the response behavior.
 
-###### status
+##### status
 ```
 ↪ http 'localhost:5000?status=401'
 HTTP/1.0 401 UNAUTHORIZED
