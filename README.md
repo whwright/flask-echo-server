@@ -56,5 +56,14 @@ Server: Werkzeug/0.10.1 Python/3.4.0
     "url": "http://localhost:5000/",
     "url_root": "http://localhost:5000/"
 }
+```
 
+##### Request Arguments
+Some additional arguments can be passed to change the response behavior.
+
+###### status
+```
+↪ http 'localhost:5000?status=401'
+HTTP/1.0 401 UNAUTHORIZED
+...
 ```
