@@ -15,9 +15,9 @@ Usage: flask-echo [options]
 Options:
   -h, --help     show this help message and exit
   --port=PORT    port to run server on - default 5000
+  --auth=AUTH    basic authentication credentials
   -v, --verbose  increased verbosity - outputs response to console
   --debug        enable debug mode in flask
-
 ```
 
 #### Example
@@ -56,6 +56,12 @@ Server: Werkzeug/0.10.1 Python/3.4.0
     "url": "http://localhost:5000/",
     "url_root": "http://localhost:5000/"
 }
+```
+
+#### Basic Authentication
+You can enable basic auth by passing credentials with the command line argument --auth
+```
+↪ flask-echo --auth username:password
 ```
 
 #### Request Arguments
