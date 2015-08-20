@@ -15,7 +15,8 @@ Usage: flask-echo [options]
 Options:
   -h, --help     show this help message and exit
   --port=PORT    port to run server on - default 5000
-  --auth=AUTH    basic authentication credentials
+  --auth=AUTH    basic authentication credentials, should be passed in like
+                 "username:password"
   -v, --verbose  increased verbosity - outputs response to console
   --debug        enable debug mode in flask
 ```

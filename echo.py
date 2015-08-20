@@ -88,7 +88,7 @@ def echo(path):
 def main():
     parser = OptionParser()
     parser.add_option('--port', dest='port', default=5000, help='port to run server on - default 5000')
-    parser.add_option('--auth', dest='auth', help='basic authentication credentials')
+    parser.add_option('--auth', dest='auth', help='basic authentication credentials, should be passed in like "username:password"')
     parser.add_option('-v', '--verbose', dest='verbose',
         default=False, action='store_true', help='increased verbosity - outputs response to console')
     parser.add_option('--debug', dest='debug',
