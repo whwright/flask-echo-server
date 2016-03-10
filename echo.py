@@ -75,6 +75,7 @@ def echo(path):
         'host' : request.host,
         'args' : extract(request.args),
         'form' : extract(request.form),
+        'json' : request.json,
         'cookies' : extract(request.cookies)
     }
 
