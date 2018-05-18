@@ -15,6 +15,7 @@ Usage: flask-echo [options]
 Options:
   -h, --help     show this help message and exit
   --port=PORT    port to run server on - default 5000
+  --host=HOST    host to bind server on - default 127.0.0.1
   --auth=AUTH    basic authentication credentials, should be passed in like
                  "username:password"
   -v, --verbose  increased verbosity - outputs response to console
